@@ -1,24 +1,35 @@
+import React from 'react';
+import { Route, Link, Routes, BrowserRouter as Router } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+import Home from './Home';
+import Sub from './Sub';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Fukc Test
+          </p>
+
+          <Link to="/home" style={{ textDecoration: 'none', color: 'inherit' }}>메인페이지</Link>
+          <Link to="/sub" style={{ textDecoration: 'none', color: 'inherit' }}>서브페이지</Link>
+        </header>
+
+        <hr className="App-hr" />
+
+        <main>
+          <Routes>
+            <Route exact path="/home" element={<Home />} />
+            <Route path="/sub" element={<Sub />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 
